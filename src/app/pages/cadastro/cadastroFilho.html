@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Filho/Enteado</h2>
+<mat-dialog-content style="display: flex; justify-content: space-between; gap: 10px;">
+  <mat-form-field style="width: 90%;">
+    <mat-label>Nome</mat-label>
+    <input matInput [(ngModel)]="data.name" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Dt. Nascimento</mat-label>
+    <input matInput [(ngModel)]="data.dt_nasc" mask="99/99/9999"/>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</mat-dialog-actions>

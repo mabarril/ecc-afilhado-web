@@ -1,0 +1,425 @@
+<div class="container">
+    <div class="container-fluid">
+        <div class="header">
+            <div class="row">
+                <h1>Encontro de Casais com Cristo (ECC)</h1>
+            </div>
+            <div class="row">
+                <h2>01 a 03 de Agosto de 2025</h2>
+            </div>
+            <div class="row">
+                <h2>Ficha de inscrição dos afilhados</h2>
+            </div>
+        </div>
+
+        <form [formGroup]="cadastroEncontristaForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <mat-form-field class="full-width">
+                    <mat-label>Padrinho</mat-label>
+                    <input matInput placeholder="Indique o nome completo dos padrinhos" id="padrinho"
+                        formControlName="nomePadrinho">
+                </mat-form-field>
+            </div>
+            <div class="mt-3">
+                <mat-card appearance="outlined">
+                    <mat-card-header>
+                        <h5 class="card-title">Dados do Esposo</h5>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <mat-form-field class="full-width">
+                                    <mat-label>Nome completo</mat-label>
+                                    <input matInput placeholder="Nome completo" id="esposo_nome_completo"
+                                        formControlName="esposoNomeCompleto">
+                                </mat-form-field>
+                            </div>
+                            <div class="col">
+                                <mat-form-field class="full-width">
+                                    <mat-label>Nome</mat-label>
+                                    <input matInput placeholder="Como gostaria de ser chamado?" id="esposo_nome"
+                                        formControlName="esposoNome">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+
+                                <mat-form-field class="full-width">
+                                    <mat-label>Data de Nascimento</mat-label>
+                                    <input type="text" matInput id="esposo_dt_nasc" mask="99/99/9999"
+                                        formControlName="esposoDtNasc">
+                                </mat-form-field>
+
+                            </div>
+                            <div class="col">
+                                <mat-form-field class="full-width">
+                                    <mat-label>Profissão</mat-label>
+                                    <input matInput id="esposo_profissao" formControlName="esposoProfissao">
+                                </mat-form-field>
+                            </div>
+                            <div class="col">
+                                <mat-form-field class="full-width">
+                                    <mat-label>E-mail</mat-label>
+                                    <input type="email" matInput id="esposo_email" formControlName="esposoEmail">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <div class="col">
+                                    <mat-form-field class="full-width">
+                                        <mat-label>Celular</mat-label>
+                                        <input matInput id="esposo_celular" mask="(99) 99999-9999"
+                                            formControlName="esposoCelular">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <mat-form-field class="full-width">
+                                    <mat-label>Doc. identificação</mat-label>
+                                    <input matInput id="esposo_identidade" formControlName="esposoIdentidade">
+                                </mat-form-field>
+
+                            </div>
+                            <div class="col">
+                                <mat-form-field class="full-width">
+                                    <mat-label>Orgão Emissor</mat-label>
+                                    <input matInput id="esposo_orgao">
+                                </mat-form-field>
+                            </div>
+                            <div class="col">
+                                <mat-form-field class="full-width">
+                                    <mat-label>CPF</mat-label>
+                                    <input matInput id="esposo_cpf" mask="999.999.999-99" formControlName="esposoCpf">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <div>
+                                    <label>Problema de saúde? </label>
+                                    <mat-radio-group id="esposo_saude" formControlName="esposoSaude">
+                                        <mat-radio-button value="1">Sim</mat-radio-button>
+                                        <mat-radio-button value="2">Não</mat-radio-button>
+                                    </mat-radio-group>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="col">
+                                    <mat-form-field class="full-width">
+                                        <mat-label>Medicamento</mat-label>
+                                        <input matInput id="esposo_medicamento" formControlName="esposoMedicamento"
+                                            placeholder="Utiliza algum medicamento especial?">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <div>
+                                    <label>Diabético? </label>
+                                    <mat-radio-group id="esposo_diabetico" formControlName="esposoDiabetico">
+                                        <mat-radio-button value="1">Sim</mat-radio-button>
+                                        <mat-radio-button value="2">Não</mat-radio-button>
+                                    </mat-radio-group>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <mat-form-field class="full-width">
+                                    <mat-label>Dieta alimentar específica?</mat-label>
+                                    <mat-select id="esposo_vegetariano" formControlName="esposoVegetariano">
+                                        <mat-option value="1">Vegetariano</mat-option>
+                                        <mat-option value="2">Não vegetariano</mat-option>
+                                        <mat-option value="3">Ovolactovegetariano</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+
+                            </div>
+                            <div class="col">
+                                <mat-form-field class="full-width back">
+                                    <mat-label>Religião</mat-label>
+                                    <mat-select id="esposo_religiao" formControlName="esposoReligiao">
+                                        <mat-option value="1">Adventista do 7º Dia</mat-option>
+                                        <mat-option value="2">Católico</mat-option>
+                                        <mat-option value="3">Evangélico</mat-option>
+                                        <mat-option value="4">Outras Denominações</mat-option>
+                                        <mat-option value="5">Não informado</mat-option>
+                                        <mat-option value="6">Cristão</mat-option>
+                                        <mat-option value="7">Espírita</mat-option>
+                                        <mat-option value="8">Ateu</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+
+            <div class="mt-3">
+                <mat-card appearance="outlined">
+                    <mat-card-header>
+                        <h5 class="card-title">Dados da Esposa</h5>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div class="col">
+                            <mat-form-field class="full-width">
+                                <mat-label>Nome completo</mat-label>
+                                <input matInput placeholder="Nome completo" id="esposa_nome_completo"
+                                    formControlName="esposaNomeCompleto">
+                            </mat-form-field>
+                        </div>
+                        <div class="col">
+                            <mat-form-field class="full-width">
+                                <mat-label>Nome</mat-label>
+                                <input matInput placeholder="Como gostaria de ser chamado?" id="esposa_nome"
+                                    formControlName="esposaNome">
+                            </mat-form-field>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+
+                                <mat-form-field class="full-width">
+                                    <mat-label>Data de Nascimento</mat-label>
+                                    <input matInput id="esposa_dt_nasc" mask="99/99/9999"
+                                        formControlName="esposaDtNasc">
+                                </mat-form-field>
+
+                            </div>
+                            <div class="col">
+                                <mat-form-field class="full-width">
+                                    <mat-label>Profissão</mat-label>
+                                    <input matInput id="esposa_profissao" formControlName="esposaProfissao">
+                                </mat-form-field>
+                            </div>
+                            <div class="col">
+                                <mat-form-field class="full-width">
+                                    <mat-label>E-mail</mat-label>
+                                    <input type="email" matInput id="esposa_email" formControlName="esposaEmail">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <div class="col">
+                                    <mat-form-field class="full-width">
+                                        <mat-label>Celular</mat-label>
+                                        <input matInput type="tel" id="esposa_celular" mask="(99) 99999-9999"
+                                            formControlName="esposaCelular">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <mat-form-field class="full-width">
+                                    <mat-label>Doc. identificação</mat-label>
+                                    <input matInput id="esposa_identidade" formControlName="esposaIdentidade">
+                                </mat-form-field>
+
+                            </div>
+                            <div class="col">
+                                <mat-form-field class="full-width">
+                                    <mat-label>Orgão Emissor</mat-label>
+                                    <input matInput id="esposa_orgao" formControlName="esposaOrgao">
+                                </mat-form-field>
+                            </div>
+                            <div class="col">
+                                <mat-form-field class="full-width">
+                                    <mat-label>CPF</mat-label>
+                                    <input matInput id="esposa_cpf" mask="000.000.000-99" formControlName="esposaCpf">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <div>
+                                    <label>Problema de saúde? </label>
+                                    <mat-radio-group id="esposa_saude" formControlName="esposaSaude">
+                                        <mat-radio-button value="1">Sim</mat-radio-button>
+                                        <mat-radio-button value="2">Não</mat-radio-button>
+                                    </mat-radio-group>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="col">
+                                    <mat-form-field class="full-width">
+                                        <mat-label>Medicamento</mat-label>
+                                        <input matInput id="esposa_medicamento" formControlName="esposaMedicamento"
+                                            placeholder="Utiliza algum medicamento especial?">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <div>
+                                    <label>Diabético? </label>
+                                    <mat-radio-group id="esposa_diabetico" formControlName="esposaDiabetico">
+                                        <mat-radio-button value="1">Sim</mat-radio-button>
+                                        <mat-radio-button value="2">Não</mat-radio-button>
+                                    </mat-radio-group>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <mat-form-field class="full-width">
+                                    <mat-label>Dieta alimentar específica?</mat-label>
+                                    <mat-select id="esposa_vegetariano" formControlName="esposaVegetariano">
+                                        <mat-option value="1">Vegetariano</mat-option>
+                                        <mat-option value="2">Não vegetariano</mat-option>
+                                        <mat-option value="3">Ovolactovegetariano</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+
+                            </div>
+                            <div class="col">
+                                <mat-form-field class="full-width back">
+                                    <mat-label>Religião</mat-label>
+                                    <mat-select id="esposa_religiao" formControlName="esposaReligiao">
+                                        <mat-option value="1">Adventista do 7º Dia</mat-option>
+                                        <mat-option value="2">Católico</mat-option>
+                                        <mat-option value="3">Evangélico</mat-option>
+                                        <mat-option value="4">Outras Denominações</mat-option>
+                                        <mat-option value="5">Não informado</mat-option>
+                                        <mat-option value="6">Cristão</mat-option>
+                                        <mat-option value="7">Espírita</mat-option>
+                                        <mat-option value="8">Ateu</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <div class="mt-3">
+                <mat-card appearance="outlined">
+                    <mat-card-header>
+                        <div class="row full-width">
+                            <div class="col full-width">
+                                <h5 class="card-title">Filhos / Enteados</h5>
+                            </div>
+                            <div class="col full-width" style="display: flex; justify-content: flex-end;">
+                                <button mat-raised-button (click)="openDialog()">Adicionar</button>
+                            </div>
+                        </div>
+
+                    </mat-card-header>
+                    <mat-card-content>
+                        <mat-list #shoes>
+                            @for (filho of filhosCasal ; track filho) {
+                            <mat-list-item>
+                                <div class="row">
+                                    <div class="col full-width">
+                                        {{filho.name}}
+                                    </div>
+                                    <div class="col full-width">
+                                        <div class="row">
+                                            <div class="col full-width"
+                                                style="display: flex; justify-content: flex-end;">
+                                                {{filho.dt_nasc}}
+                                            </div>
+                                            <div class="col" style="display: flex; justify-content: flex-end;">
+                                                <button mat-icon-button (click)="removeFilho(filho)">
+                                                    <mat-icon>delete</mat-icon>
+                                                </button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </mat-list-item>
+                            }
+                        </mat-list>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+
+            <div class="mt-3">
+                <mat-card appearance="outlined">
+                    <mat-card-content>
+                        <div class="row mb-3">
+                            <mat-form-field>
+                                <mat-label>Data do Casamento</mat-label>
+                                <input type="date" matInput id="dt_casamento" mask="99/99/9999"
+                                    formControlName="dtCasamento">
+                            </mat-form-field>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <div class="col">
+                                    <mat-form-field class="full-width">
+                                        <mat-label>Endereço</mat-label>
+                                        <input matInput id="endereco" formControlName="endereco">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <mat-form-field class="full-width">
+                                    <mat-label>Bairro</mat-label>
+                                    <input matInput id="bairro" formControlName="bairro">
+                                </mat-form-field>
+                            </div>
+                            <div class="col">
+                                <mat-form-field class="full-width">
+                                    <mat-label>Cidade / UF</mat-label>
+                                    <input matInput id="cidade" formControlName="cidade">
+                                </mat-form-field>
+                            </div>
+                            <div class="col">
+                                <mat-form-field class="full-width">
+                                    <mat-label>Cep</mat-label>
+                                    <input matInput id="cep" mask="99.999-999" formControlName="cep">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+
+            </div>
+            <div class="mt-3">
+                <mat-card appearance="outlined" class="termos">
+                    <mat-card-header>
+                        <mat-card-title>Termos e Condições</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+
+                        <p>Com o pagamento da inscrição para o ECC concordamos com os seguintes termos:</p>
+
+                        <p>Autorizamos a utilização do nosso nome nos eventos sociais do ECC e dos demais dados
+                            acima
+                            somente para controle de gestão e participação no encontro, de acordo com a Lei
+                            Geral de
+                            Proteção de Dados Pessoais - Lei nº 13.709/18. </p>
+                        <p><strong>Em caso de desistência da participação no ECC, haverá a devolução dos seguintes
+                                porcentuais
+                                do valor da inscrição de acordo com a data solicitada:</strong></p>
+
+                        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table">
+                            <ng-container matColumnDef="data">
+                                <th mat-header-cell *matHeaderCellDef> Data de Solicitação da Desistência </th>
+                                <td mat-cell *matCellDef="let devolucao"> {{devolucao.data}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="perc">
+                                <th mat-header-cell *matHeaderCellDef> Data de Solicitação da Desistência </th>
+                                <td mat-cell *matCellDef="let devolucao"> {{devolucao.perc}} </td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+
+                    </mat-card-content>
+                    <mat-card appearance="outlined" style="padding: 1rem; margin: 2rem;">
+                        <mat-checkbox>Concordo com os termos e condições acima.</mat-checkbox>
+                    </mat-card>
+                    <div style="padding: 1rem; margin: 2rem;">
+                        <button mat-button disabled="false" type="submit">Enviar Inscrição</button>
+                    </div>
+                </mat-card>
+            </div>
+        </form>
+    </div>
+</div>

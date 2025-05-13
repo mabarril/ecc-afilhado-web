@@ -1,0 +1,48 @@
+html {
+    padding: 2rem;
+}
+
+
+.container-fluid {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: rgba(0, 68, 255, 0.2);
+    border-radius: 1rem;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    color: rgb(21, 66, 82)
+}
+
+
+.full-width {
+    width: 100%;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: flex-start;
+    align-content: stretch;
+}
+
+
+mat-list-item {
+    :hover {
+        background-color: lightgrey;
+    }
+}
+
+.termos {
+    padding: 2rem;
+}
+
+mat-card-content {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+}
