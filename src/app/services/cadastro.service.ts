@@ -14,8 +14,9 @@ export class CadastroService {
     return this.http.get<Cadastro>(`/api/user/${id}`);
   }
 
-  getAllCadastro(): Observable<Cadastro[]> {
-    return this.http.get<Cadastro[]>(`http://eccbsb.kinghost.net:21185/api/cadastro`);
+  getAllCadastro(): Observable<
+  Cadastro[]> {
+    return this.http.get<any>(`/api/cadastro`);
   }
 
 }
