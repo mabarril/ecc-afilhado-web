@@ -1,0 +1,11 @@
+html {
+    padding: 2rem;
+}
+
+
+.container-fluid {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: rgba(0, 68, 255, 0.2);
+    border-radius: 1rem;
+}

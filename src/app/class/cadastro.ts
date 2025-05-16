@@ -1,0 +1,36 @@
+export class Cadastro {
+    nomePadrinho?: string;
+    esposoNomeCompleto?:  string;
+    esposoNome?:  string;
+    esposoDtNasc?:  string;
+    esposoProfissao?:  string;
+    esposoEmail?:  string;
+    esposoCelular?:  string;
+    esposoIdentidade?:  string;
+    esposoOrgao?:  string;
+    esposoCpf?:  string;
+    esposoSaude?:  string;
+    esposoMedicamento?:  string;
+    esposoDiabetico?:  string;
+    esposoVegetariano?:  string;
+    esposoReligiao?:  string;
+    esposaNomeCompleto?:  string;
+    esposaNome?:  string;
+    esposaDtNasc?:  string;
+    esposaProfissao?:  string;
+    esposaEmail?:  string;
+    esposaCelular?:  string;
+    esposaIdentidade?:  string;
+    esposaOrgao?:  string;
+    esposaCpf?:  string;
+    esposaSaude?:  string;
+    esposaMedicamento?:  string;
+    esposaDiabetico?:  string;
+    esposaVegetariano?:  string;
+    esposaReligiao?:  string;
+    dtCasamento?:  string;
+    endereco?:  string;
+    bairro?:  string;
+    cidade?:  string;
+    cep?:  string;
+}
