@@ -2,12 +2,12 @@
     <div class="container-fluid">
 <form class="example-form">
     <mat-form-field class="example-full-width">
-        <mat-label>Number</mat-label>
-        <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl"
+        <mat-label>Padrinhos</mat-label>
+        <input type="text" placeholder="Selecione os padrinhos" aria-label="Number" matInput [formControl]="myControl"
             [matAutocomplete]="auto">
         <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-            @for (option of listaCadastros | async; track option) {
-            <mat-option [value]="option.esposoNome">{{option.esposoNome}}</mat-option>
+            @for (casal of cadastros; track casal) {
+            <mat-option [value]="casal.casal">{{casal.esposo_nome}} e {{casal.esposa_nome}}</mat-option>
             }
         </mat-autocomplete>
     </mat-form-field>

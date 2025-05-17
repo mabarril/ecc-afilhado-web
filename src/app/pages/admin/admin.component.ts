@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
@@ -16,30 +16,43 @@ import { Cadastro } from '../../class/cadastro';
     MatInputModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
-    AsyncPipe,],
+  ],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
 })
-export class AdminComponent {
+export class AdminComponent implements OnInit {
 
   myControl = new FormControl();
 
-  listaCadastros! : Observable<Cadastro[]>;
-  cadastros? : Cadastro[];
+  listaCadastros!: Cadastro[];
+  cadastros?: Cadastro[];
+  filteredOptions?: Observable<string[]>;
 
   private cadastroService = inject(CadastroService);
 
-  constructor() {
-    this.listaCadastros = this.cadastroService.getAllCadastro();
+  private loadAllRegistros() {
+    this.cadastroService.getAllCadastro().subscribe((data) => {
+      this.cadastros = data;
+      console.log(this.cadastros);
+
+    });
+
+  }
+  ngOnInit() {
+    this.loadAllRegistros();
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value || '')),
+    );    
   }
 
-  
-   
-  // private _filter(value: string): string[] {
-  //   const filterValue = value.toLowerCase();
 
-  //   return this.cadastros.filter(option => option.esposoNome.toLowerCase().includes(filterValue));
-  // }
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    console.log(filterValue);
+    console.log(this.cadastros?.map(option => option.casal).filter(option => option!.toLowerCase().includes(filterValue))!);
+    return ['ok'];
+  }
 
 
 }
