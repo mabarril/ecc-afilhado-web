@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CadastroService } from '../../services/cadastro.service';
 import { Cadastro } from '../../class/cadastro';
+import { TabAfilihadosComponent } from "../../components/tab-afilihados/tab-afilihados.component";
 
 @Component({
   selector: 'app-admin',
@@ -16,7 +17,7 @@ import { Cadastro } from '../../class/cadastro';
     MatInputModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
-  ],
+    TabAfilihadosComponent],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
 })
@@ -24,35 +25,23 @@ export class AdminComponent implements OnInit {
 
   myControl = new FormControl();
 
-  listaCadastros!: Cadastro[];
   cadastros?: Cadastro[];
-  filteredOptions?: Observable<string[]>;
 
   private cadastroService = inject(CadastroService);
 
-  private loadAllRegistros() {
+  ngOnInit() {
     this.cadastroService.getAllCadastro().subscribe((data) => {
       this.cadastros = data;
-      console.log(this.cadastros);
-
     });
 
-  }
-  ngOnInit() {
-    this.loadAllRegistros();
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value || '')),
-    );    
-  }
+    this.myControl.valueChanges.subscribe(value => {
+      this.cadastros = this._filter(value);
+    });
+  }  
 
-
-  private _filter(value: string): string[] {
+  private _filter(value: string): Cadastro[] | undefined {
     const filterValue = value.toLowerCase();
-    console.log(filterValue);
-    console.log(this.cadastros?.map(option => option.casal).filter(option => option!.toLowerCase().includes(filterValue))!);
-    return ['ok'];
+    return this.cadastros?.filter(cadastro => cadastro.esposa_nome!.toLowerCase().includes(filterValue));
   }
-
-
 }
+

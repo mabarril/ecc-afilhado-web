@@ -1,16 +1,7 @@
 <div class="container">
     <div class="container-fluid">
 <form class="example-form">
-    <mat-form-field class="example-full-width">
-        <mat-label>Padrinhos</mat-label>
-        <input type="text" placeholder="Selecione os padrinhos" aria-label="Number" matInput [formControl]="myControl"
-            [matAutocomplete]="auto">
-        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-            @for (casal of cadastros; track casal) {
-            <mat-option [value]="casal.casal">{{casal.esposo_nome}} e {{casal.esposa_nome}}</mat-option>
-            }
-        </mat-autocomplete>
-    </mat-form-field>
+  <app-tab-afilihados></app-tab-afilihados>
 </form>
 </div>
 </div>
