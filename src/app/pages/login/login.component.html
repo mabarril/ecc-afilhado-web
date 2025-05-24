@@ -1,0 +1,33 @@
+<div class="login-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Login ECC</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email Institucional</mat-label>
+          <input matInput type="email" name="email_institucional" [(ngModel)]="credentials.email_institucional" required email #emailInput="ngModel">
+          <mat-error *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)">
+            Por favor, insira um email válido.
+          </mat-error>
+        </mat-form-field> 
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Senha</mat-label>
+          <input matInput type="password" name="senha_acesso" [(ngModel)]="credentials.senha_acesso" required #passwordInput="ngModel">
+          <mat-error *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">
+            Senha é obrigatória.
+          </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || isLoading" class="full-width">
+          {{ isLoading ? 'Entrando...' : 'Entrar' }}
+        </button>
+        <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

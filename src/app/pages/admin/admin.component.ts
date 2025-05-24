@@ -1,8 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
-import { AsyncPipe } from '@angular/common';
+import { AuthService } from '../../core/auth/auth.service'; // Ajuste o caminho se necessário
+import { map, startWith } from 'rxjs/operators';  
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -28,6 +28,8 @@ export class AdminComponent implements OnInit {
   cadastros?: Cadastro[];
 
   private cadastroService = inject(CadastroService);
+  constructor(private authService: AuthService) { }
+
 
   ngOnInit() {
     this.cadastroService.getAllCadastro().subscribe((data) => {
@@ -38,6 +40,10 @@ export class AdminComponent implements OnInit {
       this.cadastros = this._filter(value);
     });
   }  
+
+    logout(): void {
+    this.authService.logout();
+  }
 
   private _filter(value: string): Cadastro[] | undefined {
     const filterValue = value.toLowerCase();
