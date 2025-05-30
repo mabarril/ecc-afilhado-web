@@ -7,29 +7,29 @@ import { AuthService } from '../core/auth/auth.service';
 @Injectable({
   providedIn: 'root'
 })
+
+
+
 export class CadastroService {
 
   private http = inject(HttpClient);
-  private authService = inject(AuthService);
-  private token = this.authService.getCurrentToken();
 
-  private getAuthHeaders(): HttpHeaders {
-    return new HttpHeaders({
-      Authorization: this.token ? `${this.token}` : ''
-    });
-  }
+  authService = inject(AuthService);
+  token = this.authService.getCurrentToken();
+
+  headers = new HttpHeaders()
+    .set('Authorization', `${this.token}`)
+    .set('Content-Type', 'application/json');
+
 
   getCadastro(id: string): Observable<Cadastro> {
-    return this.http.get<Cadastro>(`/api/user/${id}`,
-      { headers: this.getAuthHeaders() }
-    );
-    
+    return this.http.get<Cadastro>(`/api/user/${id}`, {headers: this.headers});
   }
 
   getAllCadastro(): Observable<
     Cadastro[]> {
-    return this.http.get<any>(`/api/cadastro`,
-      { headers: this.getAuthHeaders() });
+    return this.http.get<any>(`/api/cadastro`,  {headers: this.headers})
+      ;
   }
 
 }

@@ -11,8 +11,14 @@ export const routes: Routes = [
     component: AdminComponent,
     canActivate: [AuthGuard] // Proteger esta rota
   },
+  {
+    path: 'cadastro',
+    component: CadastroComponent,
+    canActivate: [AuthGuard]
+  }, // Rota de cadastro protegida 
+
   // Rota padrão: redireciona para login se não houver outra correspondência
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   // Rota curinga para qualquer outra coisa (pode ser uma página 404 ou redirecionar para login)
-  { path: '**', redirectTo: '/login' }
-];
+  { path: '**', redirectTo: '/login' },
+]; 
